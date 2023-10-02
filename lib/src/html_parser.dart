@@ -140,10 +140,14 @@ class HtmlParser extends StatefulWidget {
     for (final builtIn in builtIns) {
       if (!extensionsToIgnore.contains(builtIn) &&
           builtIn.matches(extensionContext)) {
+        if (extensionContext.elementName == 'code') {
+          // print(extension.supportedTags);
+          // print(extensionContext.elementName + 'hsds');
+          // print(extension.matches(extensionContext));
+        }
         return builtIn.build(extensionContext);
       }
     }
-
     return const TextSpan(text: "");
   }
 }

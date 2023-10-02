@@ -32,7 +32,9 @@ class TagWrapExtension extends HtmlExtension {
   });
 
   @override
-  Set<String> get supportedTags => tagsToWrap;
+  Set<String> get supportedTags {
+    return tagsToWrap;
+  }
 
   @override
   bool matches(ExtensionContext context) {
@@ -41,7 +43,7 @@ class TagWrapExtension extends HtmlExtension {
         return super.matches(context);
       case CurrentStep.preStyling:
       case CurrentStep.preProcessing:
-        return false;
+      return super.matches(context);
       case CurrentStep.building:
         return context.styledElement is WrapperElement;
     }
